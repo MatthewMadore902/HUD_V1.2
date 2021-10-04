@@ -16,6 +16,7 @@ namespace HUD_V1._2
 		static int Sniper = 4;
 		static int BFG = 4;
 		static int Lives = 3;
+		static int damage;
 
 		static void Main(string[] args)
 		{
@@ -53,16 +54,25 @@ namespace HUD_V1._2
 		}
 
 
-		void Damage()
+		void TakeDamage()
 		{
-			
-
+			System.Random random = new System.Random();
+			damage = random.Next(1, 25);
 
 		}
 
-		static void Weapon()
+		void Heal()
 		{
-			
+			if (Health < 100)
+			{
+				Console.WriteLine("Would you like some health");
+			}
+			//if (
+		}
+
+		static void ChangeWeapon()
+		{
+			if(
 
 		}
 		void ShowHUD()
@@ -70,7 +80,7 @@ namespace HUD_V1._2
 
 			Console.WriteLine("Health - " + Health);
 			//Console.WriteLine("Current weapon - " + Weapon);
-			Console.WriteLine("Health - " + Health);
+			Console.WriteLine("Lives - " + Lives);
 
 		}
 	}
