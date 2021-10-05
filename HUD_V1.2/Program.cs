@@ -6,26 +6,49 @@ using System.Threading.Tasks;
 
 namespace HUD_V1._2
 {
-	class Program
+	class program
 	{
 		static int Health = 100;
-		static int Pistol = 0;
-		static int ShotGun = 1;
-		static int Spreader = 2;
-		static int Laser = 3;
-		static int Sniper = 4;
-		static int BFG = 4;
+		static string Pistol = "Pistol";
+		static string ShotGun = "ShotGun";
+		static string Rocket = "Rocket Luncher";
+		static string Laser = "Laser";
+		static string Sniper = "Sniper";
+		static string BFG = "BFG";
 		static int Lives = 3;
 		static int damage;
+		static string currentWeapon;
+		static int damageDelt;
+		static System.Random random = new System.Random();
 
-		static void Main(string[] args)
+		static void DealDamage()
 		{
 
+			damageDelt = random.Next(1, 50);
 		}
 
-		void health()
+		static void TakeDamage()
 		{
-			if (Health > 100)
+			//System.Random random = new System.Random();
+			damage = random.Next(1, 25);
+			//Health = Health - damage;
+		}
+
+
+
+		static void GamePlay()
+		{	
+			Console.WriteLine("A Demon Runs At Your Out Of No where");
+			Console.WriteLine("You Delt " + damageDelt + " damage");
+			Console.WriteLine("The Demon Hits You for " + damage + " Damage");
+			Health = Health - damage;
+			Console.ReadKey();
+		}
+		static void health()
+		{
+			Health = 100;
+
+			if (Health < 100)
 			{
 				Console.WriteLine("You are healthy");
 			}
@@ -49,39 +72,160 @@ namespace HUD_V1._2
 			if (Health < 0)
 			{
 				Lives = Lives - 1;
-				Console.WriteLine("You have died");
+				Console.WriteLine("You have lost a live");
+				Health = Health + 100;
+				Health = 0;
 			}
 		}
 
 
-		void TakeDamage()
+		static void Heal()
 		{
-			System.Random random = new System.Random();
-			damage = random.Next(1, 25);
-
-		}
-
-		void Heal()
-		{
-			if (Health < 100)
+			if (Health < 20)
 			{
-				Console.WriteLine("Would you like some health");
+				Console.WriteLine("Would you like some health   Y/N");
 			}
-			//if (
+
+			string user = Console.ReadLine();
+
+			if (user == "Y")
+			{
+				Health = Health + 25;
+			}
+			if (user == "N")
+			{
+				Health = Health + 0;
+			}
 		}
 
 		static void ChangeWeapon()
 		{
-			if(
+			//System.Random random = new System.Random();
+			//currentWeapon = Convert.ToString(random.Next(1, 6));
+			Console.WriteLine("You Find  Weapon Box What Will You Pick?, Pick a number from 1 to 6 : ");
+			string Weapon = Console.ReadLine();
 
+			if (Weapon == "1")
+			{
+				currentWeapon = Pistol;
+			}
+			if (Weapon == "2")
+			{
+				currentWeapon = ShotGun;
+			}
+			if (Weapon == "3")
+			{
+				currentWeapon = Rocket;
+			}
+			if (Weapon == "4")
+			{
+				currentWeapon = Laser;
+			}
+			if (Weapon == "5")
+			{
+				currentWeapon = Sniper;
+			}
+			if (Weapon == "6")
+			{
+				currentWeapon = BFG;
+			}
+			//Console.ReadKey();
 		}
-		void ShowHUD()
+
+
+
+		static void ShowHUD()
 		{
-
+			Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			Console.WriteLine("Health - " + Health);
-			//Console.WriteLine("Current weapon - " + Weapon);
+			Console.WriteLine("Current weapon - " + currentWeapon);
 			Console.WriteLine("Lives - " + Lives);
+			Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			Console.ReadKey();
+		}
+
+		static void Main(string[] args)
+		{
+;			health();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			Heal();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+			DealDamage();
+			TakeDamage();
+			ShowHUD();
+			ChangeWeapon();
+			ShowHUD();
+			GamePlay();
+
+
+
 
 		}
+
+
 	}
 }
